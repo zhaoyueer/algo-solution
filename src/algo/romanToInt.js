@@ -16,7 +16,7 @@ const romanToInt = (s) => {
   let prev
   let num = 0
   for (let i = 0; i < s.length; i++) {
-    num += romanMap[s[j]]
+    num += romanMap[s[i]]
     if (prev && romanMap[prev] < romanMap[s[i]]) {
       num -= romanMap[prev] * 2
     }
