@@ -21,4 +21,4 @@ const stairDynamicPlanning = (n) => {
   return numSum
 }
 
-console.log('center stairDynamicPlanning', stairDynamicPlanning(12))
+// console.log('center stairDynamicPlanning', stairDynamicPlanning(12))
