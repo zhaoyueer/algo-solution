@@ -1,7 +1,10 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
+/**
+ * @type {import ('webpack').Configuration}
+ */
+const config = {
   entry: {
     index: './src/index.js'
   },
@@ -10,6 +13,9 @@ module.exports = {
     path: path.join(__dirname, './dist')
   },
   mode: 'development',
+  resolve: {
+    extensions: ['.js', '.ts']
+  },
   module: {
     rules: [
       {
@@ -19,6 +25,20 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               presets: ["@babel/preset-env", "@babel/preset-typescript"],
+              plugins: [
+                [
+                  '@babel/plugin-transform-runtime',
+                  {
+                    regenerator: true,
+                  },
+                ],
+                [
+                  '@babel/plugin-proposal-class-properties',
+                  {
+                    loose: true
+                  }
+                ]
+              ]
             }
           }
         ]
@@ -43,3 +63,5 @@ module.exports = {
     compress: true
   },
 }
+
+module.exports = config
